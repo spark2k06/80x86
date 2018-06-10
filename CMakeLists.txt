@@ -45,6 +45,7 @@ add_definitions(-DMEM_INIT_BYTE_VAL=${POISON_MEMORY_VALUE})
 option(BUILD_DE0_CV "Build an image for the DE0-CV board" OFF)
 option(BUILD_DE0_NANO "Build an image for the DE0-nano board" OFF)
 option(BUILD_HDP001 "Build an image for the HDP001 board" OFF)
+option(BUILD_JSA001 "Build an image for the JSA001 board" OFF)
 option(S80X86_TRAP_ESCAPE "Trap on ESC opcodes" OFF)
 option(S80X86_PSEUDO_286 "Clear bits 12-15 of the flags register to act like 286 real mode" OFF)
 
@@ -73,6 +74,10 @@ endif()
 
 if(${BUILD_HDP001})
 add_subdirectory(fpga/hdp001)
+endif()
+
+if(${BUILD_JSA001})
+add_subdirectory(fpga/jsa001)
 endif()
 
 include(CTest)
